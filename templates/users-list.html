@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Users{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Username</b></th>
+    <th><b>Followers</b></th>
+    <th><b>Following</b></th>
+    </tr>
+   
+  {% for user in users %}
+    <tr>
+      <td>{{user.Username}}</a></td>
+      <td>{{ user.Followers }}</td>
+      <td>{{ user.Following }}</td>
+    </tr>
+    
+  {% endfor %}
+  </table>
+{% endblock %}

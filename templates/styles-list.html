@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Styles{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>IdArtist</b></th>
+    <th><b>Styles</b></th>
+   </tr>
+   
+  {% for style in styles %}
+    <tr>
+      <td>{{style.IdArtist}}</td>
+      <td>{{ style.Styles }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

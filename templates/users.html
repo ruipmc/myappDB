@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ user.Username }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>User info</h2>
+  <p>
+    <b>Username: </b>{{ user.Username }}
+  </p>
+  <p>
+    <b>Followers: </b>{{ user.Followers}}
+  </p>
+  <p>
+    <b>Following: </b>{{ user.Following}}
+  </p>
+  <p>
+    <b>Playlist: </b><ul>
+    {% for playlist in playlists %}      
+      <li><a href="/playlists/{{ playlist.Creator}}">{{playlist.Name}}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

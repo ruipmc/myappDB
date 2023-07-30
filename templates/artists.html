@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ artist.ArtistName }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Artist info</h2>
+  <p>
+    <b>IdArtist: </b>{{ artist.IdArtist }}
+  </p>
+  <p>
+    <b>Artist Name: </b>{{artist.ArtistName}}
+  </p>
+  <p>
+    <b>Artistical Name: </b>{{ artist.ArtisticalName}}
+  </p>
+  <p>
+    <b>Country: </b>{{ artist.Country }} 
+  </p>
+  <p>
+    <b>Styles: </b><ul>
+    {% for style in styles %}      
+      <li>{{ style.Styles }}</li>
+    {% endfor %}
+    </ul>
+  </p>
+  <p>
+  {% if songs %}
+  <p>
+    <b>Songs: </b><ul>
+    {% for song in songs %}      
+      <li><a href="/songs/{{ song.SongId}}">{{ song.Title }}</a></li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+  {% if albums %}
+  <p>
+    <b>Albums: </b><ul>
+    {% for album in albums %}      
+      <li><a href="/albums/{{ album.IdAlbum}}">{{ album.Title }}</a></li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+  
+  
+
+  
+{% endblock %}

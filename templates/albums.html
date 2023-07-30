@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ album.Title }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Album info</h2>
+  <p>
+    <b>IdAlbum: </b>{{ album.IdAlbum}}
+  </p>
+  <p>
+    <b>Title: </b>{{ album.Title }}
+  </p>
+  <p>
+    <b>Year: </b>{{ album.Year }}
+  </p>
+
+{% endblock %}

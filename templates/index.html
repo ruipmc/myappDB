@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Spotify {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>About</h2>
+<p>This web application illustrates the use of Spotify
+database. The application is built using 
+<a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Songs</td>
+  <td>{{stats.songs }}</td>
+</tr>
+<tr>
+  <td>Artists</td>
+  <td>{{stats.artists }}</td>
+</tr>
+<tr>
+  <td>Albums</td>
+  <td>{{stats.albums }}</td>
+</tr>
+<tr>
+  <td>Playlists</td>
+  <td>{{stats.playlists }}</td>
+</tr>
+<tr>
+  <td>Users</td>
+  <td>{{stats.users }}</td>
+</tr>
+<table>
+
+<h2>Sample functionality</h2>
+
+<h3>Songs</h3>
+<p>
+   <a href="/songs">List all</a>
+</p>
+<p>Get song info<p>
+<form name="mid" action="javascript:window.open('/songs/'+document.forms['mid'].elements['id'].value,'_self')">
+   Song Id: <input value="100" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+  <form name="songsearch" action="javascript:window.open('/songs/search/'+document.forms['songsearch'].elements['expr'].value,'_self')">
+   Song Title: <input name="expr" id="expr" value="Chicago Freestyle" required/>
+    <input type="submit"  value="search"/>
+  </form>
+  </p>
+
+<h3>Artists</h3>
+<p>
+  <a href="/artist">List all</a>
+</p>
+<form name="artistsearch" action="javascript:window.open('/artists/search/'+document.forms['artistsearch'].elements['expr'].value,'_self')">
+  Artist: <input name="expr" id="expr" value="Drake" required/>
+   <input type="submit"  value="search"/>
+ </form>
+ </p>
+
+ <h3>Albums</h3>  
+<p>
+   <a href="/album">List all</a>
+</p>
+<form name="albumsearch" action="javascript:window.open('/albums/search/'+document.forms['albumsearch'].elements['expr'].value,'_self')">
+  Artist: <input name="expr" id="expr" value="Honestly, Nevermind" required/>
+   <input type="submit"  value="search"/>
+ </form>
+ </p>
+
+<h3>Styles</h3>
+<p>
+   <a href="/style">List all</a>
+</p>
+
+<h3>Playlists</h3>
+<p>
+   <a href="/playlist">List all</a>
+</p>
+
+
+<h3>Users</h3>
+<p>
+   <a href="/user">List all</a>
+</p>
+  
+
+{% endblock %}

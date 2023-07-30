@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Albums{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>IdAlbum</b></th>
+    <th><b>Title</b></th>
+    <th><b>Year</b></th>
+   </tr>
+   
+  {% for album in albums %}
+    <tr>
+      <td><a href="/albums/{{ album.IdAlbum }}">{{album.IdAlbum }}</a></td>
+      <td>{{ album.Title }}</td>
+      <td>{{ album.Year }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Artists{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>ArtistName</b></th>
+    <th><b>ArtisticalName</b></th>
+    <th><b>Country</b></th>
+   </tr>
+   
+  {% for artist in artists %}
+    <tr>
+      <td><a href="/artists/{{ artist.IdArtist}}">{{artist.IdArtist }}</a></td>
+      <td>{{ artist.ArtistName }}</td>
+      <td>{{ artist.ArtisticalName}}</td>
+      <td>{{ artist.Country }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
